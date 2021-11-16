@@ -22,13 +22,16 @@ def main():
     """
     # iterate over 'results' and store the complete message from each tweet.
     my_tweets = []
+    date=[]
     for result in results:
+        date.append(result["created_at"])
         if (not result["full_text"].startswith("RT")):
             my_tweets.append(result["full_text"])
+            
         else:
             my_tweets.append(result["retweeted_status"]["full_text"])
 
-    df = pd.DataFrame({'text': my_tweets})
+    df = pd.DataFrame({'date':date,'text': my_tweets})
     df.to_csv('file_name.csv')
     
 

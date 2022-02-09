@@ -3,28 +3,18 @@ import os
 import json
 
 
-# To set your environment variables in your terminal run the following line:
-# export 'BEARER_TOKEN'='<your_bearer_token>'
-#bearer_token = os.environ.get("BEARER_TOKEN")
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAPslVwEAAAAAoq4VtVHgfC63HpcbcEMKUJCK5Eo%3Dboec4QGn0PfbTgt1M0ecXf3x9At7jzj5KTINineTf7QPECdn6R"
-
-
+bearer_token = "XXX"
 search_url = "https://api.twitter.com/2/tweets/search/recent"
 
-# Optional params: start_time,end_time,since_id,until_id,max_results,next_token,
-# expansions,tweet.fields,media.fields,poll.fields,place.fields,user.fields
-#query_params = {'query': '(from:twitterdev -is:retweet) OR #twitterdev','tweet.fields': 'author_id'}
 
 def bearer_oauth(r):
-    """
-    Method required by bearer token authentication.
-    """
     r.headers["Authorization"] = f"Bearer {bearer_token}"
-    r.headers["User-Agent"] = "COMP598_Final_Project_AAA"
+    r.headers["User-Agent"] = "XXX"
     return r
 
 def create_url(keyword, start_date, end_date, max_results=10):
-    search_url = "https://api.twitter.com/2/tweets/search/recent" # Change to the endpoint you want to collect data from
+    # set the endpoint the collect data from
+    search_url = "https://api.twitter.com/2/tweets/search/recent" 
 
     # change params based on the endpoint you are using
     query_params = {'query': keyword,
